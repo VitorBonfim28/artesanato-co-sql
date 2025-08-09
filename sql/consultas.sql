@@ -1,1 +1,44 @@
+Alana é uma empreendedora apaixonada por arte e cultura regional. Depois de anos participando de feiras de
+artesanato em Minas Gerais, ela decidiu criar sua própria loja online: a Artesanato&Co.
+
+A proposta da loja é conectar artesãos locais de cidades históricas, como Ouro Preto, Tiradentes e São
+João del Rei, a clientes de todo o Brasil. Cada peça vendida é feita à mão e carrega uma história única.
+Na Artesanato&Co, Alana organiza os produtos por categorias como cerâmica, tecelagem e madeira. Ela
+gerencia os cadastros dos artesãos, os pedidos dos clientes, o pagamento, e ainda monitora o status
+das entregas.
+
+Com o crescimento da loja, Alana percebeu a necessidade de um banco de dados relacional para controlar
+tudo com segurança e eficiência. Agora ela precisa da ajuda de desenvolvedores como você para construir
+esse sistema completo, com consultas que ajudem a entender o negócio, como:
+
+● Quem mais compra?
+● Quais produtos vendem mais?
+● Quais pedidos ainda não foram pagos?
+● Quais artesãos estão vendendo mais?
+● Há produtos cadastrados que nunca foram vendidos?
+
+CONSULTAS:
+
+PARTE 1 – CONSULTAS SIMPLES (SELECT)
+
+1. Liste todos os produtos com preço maior que R$ 80.
+R: SELECT nome, preco FROM produtos WHERE preco > 80;
+
+2. Mostre o nome dos artesãos que moram em cidades que começam com "S".
+R: SELECT nome FROM artesaos WHERE cidade LIKE "S%";
+
+3. Liste todos os produtos da categoria 'Tecelagem'.
+R: SELECT nome FROM produtos where id_categoria = 2;
+
+4. Traga todos os pedidos cujo status de pagamento é 'PENDENTE'.
+R: SELECT id_cliente, data_pedido FROM pedidos WHERE status_pagamento = 'PENDENTE';
+
+PARTE 2 – FUNÇÕES E AGRUPAMENTOS
+  
+5. Liste os produtos que foram vendidos mais de 2 vezes.
+R: SELECT nome, preco, SUM(quantidade) FROM produtos JOIN itens_pedido ON produtos.id = itens_pedido.id_produto
+GROUP BY nome, preco
+HAVING SUM(quantidade)>2;
+
+
 
