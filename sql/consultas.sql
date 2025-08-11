@@ -40,5 +40,14 @@ R: SELECT nome, preco, SUM(quantidade) FROM produtos JOIN itens_pedido ON produt
 GROUP BY nome, preco
 HAVING SUM(quantidade)>2;
 
+6. Mostre quantos pedidos cada cliente já fez.
+R: SELECT nome, COUNT(id_cliente) FROM clientes JOIN pedidos ON clientes.id = id_cliente
+GROUP BY id_cliente;
+
+7. Qual o valor total de cada pedido (quantidade × preço)?
+R: SELECT nome, id_pedido, SUM(quantidade * preco_unitario) AS VALOR TOTAL FROM itens_pedido join pedidos ON pedidos.id = itens_pedido.id_pedido
+join clientes ON clientes.id = pedidos.id_cliente
+GROUP BY nome, id_pedido;
+
 
 
