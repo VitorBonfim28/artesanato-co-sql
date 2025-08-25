@@ -49,5 +49,9 @@ R: SELECT nome, id_pedido, SUM(quantidade * preco_unitario) AS VALOR TOTAL FROM 
 join clientes ON clientes.id = pedidos.id_cliente
 GROUP BY nome, id_pedido;
 
+8. Liste os artesãos e a quantidade de produtos que cada um cadastrou.
+R: SELECT artesaos.nome, artesaos.id, count(id_artesao) AS QUANTIDADE FROM artesaos join produtos ON artesaos.id = produtos.id_artesao 
+  group by artesaos.id, artesaos.nome;
+
 
 
