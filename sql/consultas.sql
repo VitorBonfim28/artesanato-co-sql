@@ -53,5 +53,16 @@ GROUP BY nome, id_pedido;
 R: SELECT artesaos.nome, artesaos.id, count(id_artesao) AS QUANTIDADE FROM artesaos join produtos ON artesaos.id = produtos.id_artesao 
   group by artesaos.id, artesaos.nome;
 
+PARTE 3 – JUNÇÕES (JOINS)
+9. Mostre os pedidos com nome do cliente, data e status de pagamento.
+R: Select clientes.nome, data_pedido, status_pagamento FROM pedidos join clientes ON pedidos.id_cliente = clientes.id;
+
+10. Liste os produtos pedidos por cada cliente (nome do cliente + produto).
+R: SELECT clientes.nome, produtos.nome, itens_pedido.id 
+FROM pedidos 
+JOIN clientes ON pedidos.id_cliente = clientes.id
+JOIN produtos  ON itens_pedido.id_produto  = produtos.id
+JOIN itens_pedidos ON itens_pedido.id_pedido = pedidos.id;
+# a continuar.
 
 
