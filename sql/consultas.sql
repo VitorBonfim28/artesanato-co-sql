@@ -63,6 +63,6 @@ FROM pedidos
 JOIN clientes ON pedidos.id_cliente = clientes.id
 JOIN produtos  ON itens_pedido.id_produto  = produtos.id
 JOIN itens_pedidos ON itens_pedido.id_pedido = pedidos.id;
-# a continuar.
+
 
 
