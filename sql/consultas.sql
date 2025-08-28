@@ -64,5 +64,18 @@ JOIN clientes ON pedidos.id_cliente = clientes.id
 JOIN produtos  ON itens_pedido.id_produto  = produtos.id
 JOIN itens_pedidos ON itens_pedido.id_pedido = pedidos.id;
 
+11. Mostre todos os produtos e suas respectivas categorias.
+R: SELECT produtos.nome AS "Nome do Produto", categorias.nome AS "Categoria do Produto" from produtos JOIN categorias on produtos.id_categoria = categorias.id;
 
+12. Liste os pedidos com nome do cliente e o status da entrega.
+R: SELECT clientes.nome AS "Nome do Cliente" , pedidos.status_pagamento AS "Status do Pagamento", entregas.status_entrega AS "Status da Entrega" FROM 
+clientes JOIN pedidos ON clientes.id = pedidos.id_cliente
+JOIN entregas on pedidos.id = entregas.id;
+
+PARTE 4 – SUBCONSULTAS (SUBQUERIES)
+
+13. Liste os produtos que nunca foram vendidos.
+R: SELECT produtos.nome from produtos
+WHERE NOT EXISTS(SELECT * FROM itens_pedidos WHERE produtos.id = itens_pedidos.id_produto)
+#Continuar Daqui
 
